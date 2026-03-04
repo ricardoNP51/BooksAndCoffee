@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books & Coffee | The Art of Reading</title>
+    <title>Books & Coffee | El Arte de Leer</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -20,7 +23,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-bg {
             position: absolute;
             top: 50%;
@@ -28,7 +31,7 @@
             transform: translate(-50%, -50%);
             width: 80vw;
             height: 80vh;
-            background: radial-gradient(circle, rgba(207,168,112,0.15) 0%, rgba(10,9,8,0) 70%);
+            background: radial-gradient(circle, rgba(207, 168, 112, 0.15) 0%, rgba(10, 9, 8, 0) 70%);
             border-radius: 50%;
             z-index: 0;
             filter: blur(80px);
@@ -82,7 +85,7 @@
             transition: left var(--trans-smooth);
             z-index: 1;
         }
-        
+
         .btn-primary:hover::before {
             left: 0;
         }
@@ -102,7 +105,7 @@
         }
 
         .book-container.book-3d {
-            box-shadow: -20px 20px 50px rgba(0,0,0,0.5);
+            box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.5);
         }
 
         .book-front {
@@ -114,9 +117,9 @@
             background-size: cover;
             background-position: center;
             border-radius: 2px 8px 8px 2px;
-            box-shadow: inset 4px 0 10px rgba(0,0,0,0.1);
+            box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .book-front::after {
             /* Spine overlay effect */
             content: '';
@@ -125,7 +128,7 @@
             left: 0;
             width: 4%;
             height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
         }
 
         .book-back {
@@ -154,7 +157,7 @@
             left: 5px;
             transform: translateZ(-19px);
             background-color: #f4ecce;
-            background-image: repeating-linear-gradient(to top, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
+            background-image: repeating-linear-gradient(to top, transparent, transparent 2px, rgba(0, 0, 0, 0.05) 2px, rgba(0, 0, 0, 0.05) 4px);
             border-radius: 0 6px 6px 0;
         }
 
@@ -176,8 +179,13 @@
         }
 
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .marquee-item {
@@ -196,7 +204,7 @@
             color: var(--clr-accent);
             font-size: 1.5rem;
         }
-        
+
         .section-padding {
             padding: var(--padding-y) 0;
         }
@@ -212,7 +220,6 @@
         .book-card {
             position: relative;
             cursor: pointer;
-            group: hover;
         }
 
         .book-card-cover {
@@ -240,24 +247,25 @@
             flex-direction: column;
             gap: 0.5rem;
         }
-        
+
         .book-author {
             color: var(--clr-accent);
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        
+
         .book-title {
             font-size: 1.5rem;
         }
     </style>
 </head>
+
 <body>
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
-    
+
     <!-- Loader -->
     <div class="page-loader">
         <h2 class="serif text-accent" style="font-style: italic;">Books & Coffee.</h2>
@@ -269,9 +277,9 @@
             <span class="magnetic-text">Books&Coffee</span>
         </a>
         <div class="nav-links">
-            <a href="catalog.html" class="nav-link interactive">Catalog</a>
-            <a href="#" class="nav-link interactive">Our Story</a>
-            <a href="#" class="nav-link interactive">Journal</a>
+            <a href="catalog.html" class="nav-link interactive">Catálogo</a>
+            <a href="#" class="nav-link interactive">Nuestra Historia</a>
+            <a href="#" class="nav-link interactive">Diario</a>
         </div>
     </nav>
 
@@ -281,14 +289,19 @@
             <div class="hero-bg"></div>
             <div class="hero-content">
                 <div class="hero-text">
-                    <p class="subtitle reveal-up delay-1" style="margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.2em;">Curated Literature</p>
-                    <h1 class="title-xl reveal-up delay-2">Immerse <br><span class="serif text-accent" style="font-style: italic;">yourself</span> in <br>new worlds.</h1>
-                    <p class="reveal-up delay-3" style="max-width: 400px; margin-top: 2rem; color: var(--clr-text-muted);">
-                        Discover our hand-picked collection of premium hardcover books, designed for the truly passionate reader and coffee aficionado.
+                    <p class="subtitle reveal-up delay-1"
+                        style="margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.2em;">Literatura
+                        Selecta</p>
+                    <h1 class="title-xl reveal-up delay-2">Sumérgete <br><span class="serif text-accent"
+                            style="font-style: italic;">profundamente</span> en <br>nuevos mundos.</h1>
+                    <p class="reveal-up delay-3"
+                        style="max-width: 400px; margin-top: 2rem; color: var(--clr-text-muted);">
+                        Descubre nuestra colección cuidadosamente seleccionada de libros de tapa dura premium, diseñados
+                        para el verdadero lector apasionado y entusiasta del café.
                     </p>
                     <div class="reveal-up delay-4">
                         <a href="catalog.html" class="btn-primary interactive">
-                            <span>Explore Catalog</span>
+                            <span>Explorar Catálogo</span>
                         </a>
                     </div>
                 </div>
@@ -309,45 +322,48 @@
         <!-- Marquee -->
         <div class="stats-marquee">
             <div class="marquee-content">
-                <div class="marquee-item">Fiction</div>
-                <div class="marquee-item">Philosophy</div>
-                <div class="marquee-item">Art & Design</div>
-                <div class="marquee-item">Science</div>
-                <div class="marquee-item">Fiction</div>
-                <div class="marquee-item">Philosophy</div>
-                <div class="marquee-item">Art & Design</div>
-                <div class="marquee-item">Science</div>
+                <div class="marquee-item">Ficción</div>
+                <div class="marquee-item">Filosofía</div>
+                <div class="marquee-item">Arte y Diseño</div>
+                <div class="marquee-item">Ciencia</div>
+                <div class="marquee-item">Ficción</div>
+                <div class="marquee-item">Filosofía</div>
+                <div class="marquee-item">Arte y Diseño</div>
+                <div class="marquee-item">Ciencia</div>
             </div>
         </div>
 
         <!-- Featured Section -->
         <section class="container section-padding">
             <div class="flex justify-between align-center reveal-up">
-                <h2 class="title-lg">Featured <span class="serif text-accent" style="font-style: italic;">Editions</span></h2>
-                <a href="catalog.html" class="nav-link interactive" style="font-size: 1rem;">View All</a>
+                <h2 class="title-lg">Ediciones <span class="serif text-accent"
+                        style="font-style: italic;">Destacadas</span></h2>
+                <a href="catalog.html" class="nav-link interactive" style="font-size: 1rem;">Ver Todo</a>
             </div>
-            
+
             <div class="featured-grid">
                 <!-- Book Card 1 -->
                 <a href="book.html" class="book-card interactive reveal-up delay-1">
                     <div class="book-card-cover reveal-mask">
-                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800" alt="Book Cover 1">
+                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800"
+                            alt="Book Cover 1">
                     </div>
                     <div class="book-meta">
                         <span class="book-author">Haruki Murakami</span>
-                        <h3 class="serif book-title">Kafka on the Shore</h3>
+                        <h3 class="serif book-title">Kafka en la Orilla</h3>
                         <span style="color: var(--clr-text-muted);">$34.00</span>
                     </div>
                 </a>
-                
+
                 <!-- Book Card 2 -->
                 <a href="book.html" class="book-card interactive reveal-up delay-2">
                     <div class="book-card-cover reveal-mask">
-                        <img src="https://images.unsplash.com/photo-1629196914225-eb89222cf61f?auto=format&fit=crop&q=80&w=800" alt="Book Cover 2">
+                        <img src="https://images.unsplash.com/photo-1629196914225-eb89222cf61f?auto=format&fit=crop&q=80&w=800"
+                            alt="Book Cover 2">
                     </div>
                     <div class="book-meta">
                         <span class="book-author">Dante Alighieri</span>
-                        <h3 class="serif book-title">Divine Comedy</h3>
+                        <h3 class="serif book-title">La Divina Comedia</h3>
                         <span style="color: var(--clr-text-muted);">$45.00</span>
                     </div>
                 </a>
@@ -355,17 +371,18 @@
                 <!-- Book Card 3 -->
                 <a href="book.html" class="book-card interactive reveal-up delay-3">
                     <div class="book-card-cover reveal-mask">
-                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=800" alt="Book Cover 3">
+                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=800"
+                            alt="Book Cover 3">
                     </div>
                     <div class="book-meta">
-                        <span class="book-author">Marcus Aurelius</span>
-                        <h3 class="serif book-title">Meditations</h3>
+                        <span class="book-author">Marco Aurelio</span>
+                        <h3 class="serif book-title">Meditaciones</h3>
                         <span style="color: var(--clr-text-muted);">$28.00</span>
                     </div>
                 </a>
             </div>
         </section>
-        
+
         <!-- Footer Spacer -->
         <div style="height: 100px;"></div>
     </main>
@@ -380,7 +397,7 @@
             // Remove Loader
             setTimeout(() => {
                 document.querySelector('.page-loader').classList.add('loaded');
-                
+
                 // Trigger initial animations
                 setTimeout(() => {
                     document.querySelectorAll('.hero .reveal-up').forEach(el => el.classList.add('in-view'));
@@ -410,4 +427,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Great Gatsby | Books & Coffee</title>
+    <title>El Gran Gatsby | Books & Coffee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -200,39 +200,100 @@
         .navbar-detail .nav-link {
             pointer-events: auto;
         }
+    </style>
+</head>
 
-        </main><script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script><script src="js/main.js"></script><script src="js/book-effects.js"></script></head><body><div class="cursor"></div><div class="cursor-follower"></div><nav class="navbar-detail reveal-up"><a href="index.html" class="logo interactive magnetic"><span class="magnetic-text">Books&Coffee</span></a><a href="catalog.html" class="nav-link interactive" style="display: flex; align-items: center; gap: 0.5rem;"><span>←</span>Back to Catalog </a></nav><div class="split-layout"><div class="fixed-visual"><div class="book-large reveal-up delay-1"><div class="book-spine"></div><div class="book-pages"></div><div class="book-back"></div><div class="book-front"></div></div></div><div class="scroll-content"><span class="detail-author reveal-up delay-1">F. Scott Fitzgerald</span><h1 class="detail-title serif reveal-up delay-2">The Great Gatsby <br><i class="text-accent">Special Edition</i></h1><span class="detail-price reveal-up delay-3">$45.00</span><div class="detail-desc reveal-up delay-4"><p style="margin-bottom: 1.5rem;">The Great Gatsby,
-        F. Scott Fitzgerald's third book, stands as the supreme achievement of his career. First published in 1925, this quintessential novel of the Jazz Age has been acclaimed by generations of readers.
- </p><p>This special edition features a premium hardcover binding with gold foil stamping,
-        high-quality acid-free paper,
-        and exclusive illustrations that capture the allure and decadence of the roaring twenties. </p></div><div class="add-to-cart reveal-up delay-5"><div class="qty-picker"><span class="qty-btn interactive">-</span><span>1</span><span class="qty-btn interactive">+</span></div><button class="btn-large interactive magnetic"><span class="magnetic-text">Add to Cart</span></button></div>< !-- extra scroll space to demonstrate parallax/floating --><div style="height: 60vh;"></div><div class="reveal-up"><h3 class="serif" style="font-size: 2rem; margin-bottom: 2rem;">Product Details</h3><ul style="list-style: none; color: var(--clr-text-muted); line-height: 2.5;"><li><strong style="color: var(--clr-text);">Publisher:</strong>Scribner;
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
 
-        Special Edition</li><li><strong style="color: var(--clr-text);">Language:</strong>English</li><li><strong style="color: var(--clr-text);">Hardcover:</strong>208 pages</li><li><strong style="color: var(--clr-text);">Dimensions:</strong>6.1 x 0.9 x 9.2 inches</li></ul></div><div style="height: 100px;"></div></div></div>< !-- Move scripts to end of body --><script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script><script src="js/main.js"></script><script src="js/book-effects.js"></script><script>document.addEventListener("DOMContentLoaded", ()=> {
+    <nav class="navbar-detail reveal-up">
+        <a href="index.html" class="logo interactive magnetic">
+            <span class="magnetic-text">Books&Coffee</span>
+        </a>
+        <a href="catalog.html" class="nav-link interactive" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>←</span> Volver al Catálogo
+        </a>
+    </nav>
 
-                // Trigger reveals
-                setTimeout(()=> {
-                        document.querySelectorAll('.reveal-up').forEach(el=> el.classList.add('in-view'));
-                    }
+    <div class="split-layout">
+        <div class="fixed-visual">
+            <div class="book-large reveal-up delay-1">
+                <div class="book-spine"></div>
+                <div class="book-pages"></div>
+                <div class="book-back"></div>
+                <div class="book-front"></div>
+            </div>
+        </div>
 
-                    , 100);
+        <div class="scroll-content">
+            <span class="detail-author reveal-up delay-1">F. Scott Fitzgerald</span>
+            <h1 class="detail-title serif reveal-up delay-2">El Gran Gatsby <br><i class="text-accent">Edición
+                    Especial</i></h1>
+            <span class="detail-price reveal-up delay-3">$45.00</span>
 
-                // Add dynamic tilt based on mouse position to the large book
-                const bookLarge=document.querySelector('.book-large');
+            <div class="detail-desc reveal-up delay-4">
+                <p style="margin-bottom: 1.5rem;">
+                    El Gran Gatsby, el tercer libro de F. Scott Fitzgerald, se erige como el logro supremo de su
+                    carrera. Publicada por primera vez en 1925, esta novela por excelencia de la Era del Jazz ha sido
+                    aclamada por generaciones de lectores.
+                </p>
+                <p>
+                    Esta edición especial cuenta con una encuadernación premium de tapa dura con estampado en oro, papel
+                    de alta calidad libre de ácidos y exclusivas ilustraciones que capturan el encanto y la decadencia
+                    de los locos años veinte.
+                </p>
+            </div>
 
-                document.addEventListener('mousemove', (e)=> {
-                        const xAxis=(window.innerWidth / 2 - e.pageX) / 50;
-                        const yAxis=(window.innerHeight / 2 - e.pageY) / 50;
+            <div class="add-to-cart reveal-up delay-5">
+                <div class="qty-picker">
+                    <span class="qty-btn interactive">-</span>
+                    <span>1</span>
+                    <span class="qty-btn interactive">+</span>
+                </div>
+                <button class="btn-large interactive magnetic">
+                    <span class="magnetic-text">Añadir al Carrito</span>
+                </button>
+            </div>
 
-                        // Combine the animation's base rotation with the mouse movement
-                        bookLarge.style.transform=`rotateY($ {
-                                -20 + xAxis
-                            }
+            <!-- extra scroll space to demonstrate parallax/floating -->
+            <div style="height: 60vh;"></div>
 
-                            deg) rotateX($ {
-                                5 - yAxis
-                            }
+            <div class="reveal-up">
+                <h3 class="serif" style="font-size: 2rem; margin-bottom: 2rem;">Detalles del Producto</h3>
+                <ul style="list-style: none; color: var(--clr-text-muted); line-height: 2.5;">
+                    <li><strong style="color: var(--clr-text);">Editorial:</strong> Scribner; Edición Especial</li>
+                    <li><strong style="color: var(--clr-text);">Idioma:</strong> Español</li>
+                    <li><strong style="color: var(--clr-text);">Tapa dura:</strong> 208 páginas</li>
+                    <li><strong style="color: var(--clr-text);">Dimensiones:</strong> 6.1 x 0.9 x 9.2 pulgadas</li>
+                </ul>
+            </div>
 
-                            deg)`;
-                    });
+            <div style="height: 100px;"></div>
+        </div>
+    </div>
+
+    <!-- Move scripts to end of body -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/book-effects.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Trigger reveals
+            setTimeout(() => {
+                document.querySelectorAll('.reveal-up').forEach(el => el.classList.add('in-view'));
+            }, 100);
+
+            // Add dynamic tilt based on mouse position to the large book
+            const bookLarge = document.querySelector('.book-large');
+            document.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+                // Combine the animation's base rotation with the mouse movement
+                bookLarge.style.transform = `rotateY(${-20 + xAxis}deg) rotateX(${5 - yAxis}deg)`;
             });
-        </script></body></html>
+        });
+    </script>
+</body>
+
+</html>
