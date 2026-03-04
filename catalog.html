@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog | Books & Coffee</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .catalog-header {
+            padding-top: 180px;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        .catalog-filters {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .filter-btn {
+            color: var(--clr-text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: var(--clr-text);
+        }
+
+        .filter-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--clr-accent);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 4rem 3rem;
+            padding: 6rem 0;
+        }
+
+        .catalog-item {
+            display: flex;
+            flex-direction: column;
+            group: hover;
+        }
+
+        .catalog-cover-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 2/3;
+            perspective: 1000px;
+            margin-bottom: 2rem;
+        }
+
+        .catalog-cover {
+            width: 100%;
+            height: 100%;
+            background-color: var(--clr-surface-light);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+        }
+
+        /* 3D realistic cover */
+        .catalog-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 5%, rgba(0, 0, 0, 0.1) 100%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .catalog-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2px 6px 6px 2px;
+        }
+
+        .catalog-item:hover .catalog-cover {
+            transform: rotateY(-15deg) rotateX(5deg) scale(1.05);
+            box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .catalog-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .catalog-title {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            transition: color 0.3s ease;
+        }
+
+        .catalog-item:hover .catalog-title {
+            color: var(--clr-accent);
+        }
+
+        .catalog-author {
+            color: var(--clr-text-muted);
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .catalog-price {
+            margin-top: 1rem;
+            font-family: var(--font-sans);
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar reveal-up">
+        <a href="index.html" class="logo interactive magnetic">
+            <span class="magnetic-text">Books&Coffee</span>
+        </a>
+        <div class="nav-links">
+            <a href="catalog.html" class="nav-link interactive">Catalog</a>
+            <a href="#" class="nav-link interactive">Our Story</a>
+            <a href="#" class="nav-link interactive">Journal</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="catalog-header reveal-up delay-1">
+            <h1 class="title-xl serif">The <i class="text-accent">Collection.</i></h1>
+            <div class="catalog-filters">
+                <button class="filter-btn active interactive">All</button>
+                <button class="filter-btn interactive">Fiction</button>
+                <button class="filter-btn interactive">Philosophy</button>
+                <button class="filter-btn interactive">Art & Design</button>
+            </div>
+        </header>
+
+        <section class="catalog-grid">
+            <!-- Item 1 -->
+            <a href="book.html" class="catalog-item interactive reveal-up delay-1">
+                <div class="catalog-cover-wrap">
+                    <div class="catalog-cover">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop"
+                            alt="Book">
+                    </div>
+                </div>
+                <div class="catalog-meta">
+                    <span class="catalog-author">F. Scott Fitzgerald</span>
+                    <h2 class="catalog-title serif">The Great Gatsby (Special Edition)</h2>
+                    <span class="catalog-price">$45.00</span>
+                </div>
+            </a>
+
+            <!-- Item 2 -->
+            <a href="book.html" class="catalog-item interactive reveal-up delay-2">
+                <div class="catalog-cover-wrap">
+                    <div class="catalog-cover">
+                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop"
+                            alt="Book">
+                    </div>
+                </div>
+                <div class="catalog-meta">
+                    <span class="catalog-author">Haruki Murakami</span>
+                    <h2 class="catalog-title serif">Kafka on the Shore</h2>
+                    <span class="catalog-price">$34.00</span>
+                </div>
+            </a>
+
+            <!-- Item 3 -->
+            <a href="book.html" class="catalog-item interactive reveal-up delay-3">
+                <div class="catalog-cover-wrap">
+                    <div class="catalog-cover">
+                        <img src="https://images.unsplash.com/photo-1629196914225-eb89222cf61f?q=80&w=800&auto=format&fit=crop"
+                            alt="Book">
+                    </div>
+                </div>
+                <div class="catalog-meta">
+                    <span class="catalog-author">Dante Alighieri</span>
+                    <h2 class="catalog-title serif">Divine Comedy</h2>
+                    <span class="catalog-price">$55.00</span>
+                </div>
+            </a>
+
+            <!-- Item 4 -->
+            <a href="book.html" class="catalog-item interactive reveal-up delay-1">
+                <div class="catalog-cover-wrap">
+                    <div class="catalog-cover">
+                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=800&auto=format&fit=crop"
+                            alt="Book">
+                    </div>
+                </div>
+                <div class="catalog-meta">
+                    <span class="catalog-author">Marcus Aurelius</span>
+                    <h2 class="catalog-title serif">Meditations</h2>
+                    <span class="catalog-price">$28.00</span>
+                </div>
+            </a>
+
+            <!-- Item 5 -->
+            <a href="book.html" class="catalog-item interactive reveal-up delay-2">
+                <div class="catalog-cover-wrap">
+                    <div class="catalog-cover">
+                        <img src="https://images.unsplash.com/photo-1584857476562-b9e73fc5a285?q=80&w=800&auto=format&fit=crop"
+                            alt="Book">
+                    </div>
+                </div>
+                <div class="catalog-meta">
+                    <span class="catalog-author">Herman Melville</span>
+                    <h2 class="catalog-title serif">Moby Dick</h2>
+                    <span class="catalog-price">$32.00</span>
+                </div>
+            </a>
+
+            <!-- Item 6 -->
+            <a href="book.html" class="catalog-item interactive reveal-up delay-3">
+                <div class="catalog-cover-wrap">
+                    <div class="catalog-cover">
+                        <img src="https://images.unsplash.com/photo-1590842232152-40dfeb8ed506?q=80&w=800&auto=format&fit=crop"
+                            alt="Book">
+                    </div>
+                </div>
+                <div class="catalog-meta">
+                    <span class="catalog-author">Virginia Woolf</span>
+                    <h2 class="catalog-title serif">To the Lighthouse</h2>
+                    <span class="catalog-price">$29.00</span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Footer Spacer -->
+        <div style="height: 100px;"></div>
+    </main>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/book-effects.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Scroll Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Gatsby | Books & Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        body {
+            background-color: #0d0b0a;
+            /* Slightly darker for focus */
+        }
+
+        .split-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .fixed-visual {
+            width: 50vw;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1500px;
+            background: radial-gradient(circle, rgba(207, 168, 112, 0.05) 0%, rgba(10, 9, 8, 0) 70%);
+        }
+
+        .scroll-content {
+            width: 50vw;
+            padding: 180px var(--padding-x) 100px var(--padding-x);
+        }
+
+        .book-large {
+            width: 400px;
+            height: 600px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+            /* Initial rotated state */
+            transform: rotateY(-20deg) rotateX(5deg);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotateY(-20deg) rotateX(5deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotateY(-15deg) rotateX(10deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotateY(-20deg) rotateX(5deg);
+            }
+        }
+
+        .book-large .book-front {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform: translateZ(30px);
+            background-image: url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            border-radius: 2px 8px 8px 2px;
+            box-shadow: inset 5px 0 15px rgba(0, 0, 0, 0.3),
+                -30px 40px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .book-large .book-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform: translateZ(-30px);
+            background-color: var(--clr-surface-light);
+            border-radius: 8px 2px 2px 8px;
+        }
+
+        .book-large .book-spine {
+            width: 60px;
+            height: 100%;
+            position: absolute;
+            transform: rotateY(-90deg) translateZ(30px) translateX(-30px);
+            background-color: #2c2520;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.4));
+        }
+
+        .book-large .book-pages {
+            width: 380px;
+            height: 580px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            transform: translateZ(-29px);
+            background-color: #f4ecce;
+            background-image: repeating-linear-gradient(to top, transparent, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 6px);
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Detail Typography */
+        .detail-author {
+            color: var(--clr-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .detail-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .detail-price {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-style: italic;
+            color: var(--clr-text-muted);
+            margin-bottom: 3rem;
+            display: block;
+        }
+
+        .detail-desc {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--clr-text-muted);
+            margin-bottom: 4rem;
+        }
+
+        .add-to-cart {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--clr-border);
+        }
+
+        .qty-picker {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            border: 1px solid var(--clr-border);
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+        }
+
+        .qty-btn {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--clr-text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .qty-btn:hover {
+            color: var(--clr-text);
+        }
+
+        .btn-large {
+            background-color: var(--clr-accent);
+            color: var(--clr-bg);
+            padding: 1.25rem 4rem;
+            border-radius: 100px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-large:hover {
+            background-color: #e5bf84;
+            transform: translateY(-2px);
+        }
+
+        /* Nav adjustment for split layout */
+        .navbar-detail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem var(--padding-x);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            /* Let clicks pass through except on links */
+        }
+
+        .navbar-detail .logo,
+        .navbar-detail .nav-link {
+            pointer-events: auto;
+        }
+
+        </main><script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script><script src="js/main.js"></script><script src="js/book-effects.js"></script></head><body><div class="cursor"></div><div class="cursor-follower"></div><nav class="navbar-detail reveal-up"><a href="index.html" class="logo interactive magnetic"><span class="magnetic-text">Books&Coffee</span></a><a href="catalog.html" class="nav-link interactive" style="display: flex; align-items: center; gap: 0.5rem;"><span>←</span>Back to Catalog </a></nav><div class="split-layout"><div class="fixed-visual"><div class="book-large reveal-up delay-1"><div class="book-spine"></div><div class="book-pages"></div><div class="book-back"></div><div class="book-front"></div></div></div><div class="scroll-content"><span class="detail-author reveal-up delay-1">F. Scott Fitzgerald</span><h1 class="detail-title serif reveal-up delay-2">The Great Gatsby <br><i class="text-accent">Special Edition</i></h1><span class="detail-price reveal-up delay-3">$45.00</span><div class="detail-desc reveal-up delay-4"><p style="margin-bottom: 1.5rem;">The Great Gatsby,
+        F. Scott Fitzgerald's third book, stands as the supreme achievement of his career. First published in 1925, this quintessential novel of the Jazz Age has been acclaimed by generations of readers.
+ </p><p>This special edition features a premium hardcover binding with gold foil stamping,
+        high-quality acid-free paper,
+        and exclusive illustrations that capture the allure and decadence of the roaring twenties. </p></div><div class="add-to-cart reveal-up delay-5"><div class="qty-picker"><span class="qty-btn interactive">-</span><span>1</span><span class="qty-btn interactive">+</span></div><button class="btn-large interactive magnetic"><span class="magnetic-text">Add to Cart</span></button></div>< !-- extra scroll space to demonstrate parallax/floating --><div style="height: 60vh;"></div><div class="reveal-up"><h3 class="serif" style="font-size: 2rem; margin-bottom: 2rem;">Product Details</h3><ul style="list-style: none; color: var(--clr-text-muted); line-height: 2.5;"><li><strong style="color: var(--clr-text);">Publisher:</strong>Scribner;
+
+        Special Edition</li><li><strong style="color: var(--clr-text);">Language:</strong>English</li><li><strong style="color: var(--clr-text);">Hardcover:</strong>208 pages</li><li><strong style="color: var(--clr-text);">Dimensions:</strong>6.1 x 0.9 x 9.2 inches</li></ul></div><div style="height: 100px;"></div></div></div>< !-- Move scripts to end of body --><script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script><script src="js/main.js"></script><script src="js/book-effects.js"></script><script>document.addEventListener("DOMContentLoaded", ()=> {
+
+                // Trigger reveals
+                setTimeout(()=> {
+                        document.querySelectorAll('.reveal-up').forEach(el=> el.classList.add('in-view'));
+                    }
+
+                    , 100);
+
+                // Add dynamic tilt based on mouse position to the large book
+                const bookLarge=document.querySelector('.book-large');
+
+                document.addEventListener('mousemove', (e)=> {
+                        const xAxis=(window.innerWidth / 2 - e.pageX) / 50;
+                        const yAxis=(window.innerHeight / 2 - e.pageY) / 50;
+
+                        // Combine the animation's base rotation with the mouse movement
+                        bookLarge.style.transform=`rotateY($ {
+                                -20 + xAxis
+                            }
+
+                            deg) rotateX($ {
+                                5 - yAxis
+                            }
+
+                            deg)`;
+                    });
+            });
+        </script></body></html>
